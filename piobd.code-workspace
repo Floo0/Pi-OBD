@@ -1,10 +1,8 @@
 {
 	"folders": [
 		{
+			"name": "Pi-OBD",
 			"path": "."
-		},
-		{
-			"path": "..\\DistributedNetwork\\docker\\uds"
 		}
 	]
 }

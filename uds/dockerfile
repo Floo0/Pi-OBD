@@ -1,0 +1,16 @@
+FROM raspbian/stretch:041518
+# docker run -it -v /home/pi/docker/uds/mnt:/mnt raspbian/stretch:041518 bash
+
+ENV PACKAGES1="curl build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev"
+ENV PACKAGES2="requests paho-mqtt can-isotp"
+
+RUN apt-get update && \
+    apt-get install -y $PACKAGES1 && \
+    curl -O https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz && \
+    tar xzf Python-3.7.4.tgz && rm Python-3.7.4.tgz && \
+    cd Python-3.7.4 && \
+    ./configure --enable-optimizations && \
+    make altinstall && \
+    apt-get install -y python3-pip && pip3.7 install $PACKAGES2
+
+CMD [ "/bin/bash", "/mnt/servicessetup.sh" ]
