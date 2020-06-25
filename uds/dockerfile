@@ -13,4 +13,5 @@ RUN apt-get update && \
     make altinstall && \
     apt-get install -y python3-pip && pip3.7 install $PACKAGES2
 
-CMD [ "/bin/bash", "/mnt/servicessetup.sh" ]
+CMD tail -f /dev/null
+#CMD [ "/bin/bash", "/mnt/servicessetup.sh" ]
