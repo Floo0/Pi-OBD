@@ -1,0 +1,25 @@
+version: '3'
+
+
+services:
+
+  uds:
+    image: uds
+    container_name: uds
+    restart: unless-stopped
+    privileged: true
+    network_mode: "host"
+    volumes:
+      - /home/pi/docker/uds/mnt:/mnt
+    depends_on:
+      - influxdb
+      - emqx
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+        max-file: "3"
+
+networks:
+  donet:
+    driver: bridge

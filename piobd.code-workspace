@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\DistributedNetwork\\docker\\uds"
+		}
+	]
+}
